@@ -10,7 +10,7 @@ load_dotenv()
 groq_api_key=os.getenv("GROQ_API_KEY")
 model=ChatGroq(model="Gemma2-9b-It",groq_api_key=groq_api_key)
 
-# 1. Create prompt template
+## Creating the prompt template
 system_template = "Translate the following into {language}:"
 prompt_template = ChatPromptTemplate.from_messages([
     ('system', system_template),
@@ -19,9 +19,8 @@ prompt_template = ChatPromptTemplate.from_messages([
 
 parser=StrOutputParser()
 
-##create chain
+## creating the chain
 chain=prompt_template|model|parser
-
 
 
 ## App definition
